@@ -358,7 +358,7 @@ export async function exportToWord(docData: AdministrativeDocumentData) {
             new Paragraph({
               alignment: AlignmentType.CENTER,
               children: [
-                new TextRun({ text: "⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯��⎯", size: 24, font: "Times New Roman" }),
+                new TextRun({ text: "⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯���⎯", size: 24, font: "Times New Roman" }),
               ],
             }),
             new Paragraph({
@@ -486,35 +486,6 @@ export async function exportToWord(docData: AdministrativeDocumentData) {
                             alignment: AlignmentType.CENTER,
                             children: [
                               new TextRun({ text: (docData.mainSigner.ktGiamDoc || docData.mainSigner.ktBiThu).toUpperCase(), bold: true, size: 28, font: "Times New Roman" }),
-                            ],
-                          })
-                        ] : []),
-                        new Paragraph({
-                          alignment: AlignmentType.CENTER,
-                          children: [
-                            new TextRun({ text: " ", italics: true, size: 18, font: "Times New Roman" }),
-                          ],
-                        }),
-                        new Paragraph({ spacing: { before: 1200 } }),
-                        new Paragraph({
-                          alignment: AlignmentType.CENTER,
-                          children: [
-                            new TextRun({ text: docData.mainSigner.fullName.charAt(0).toUpperCase() + docData.mainSigner.fullName.slice(1), bold: true, size: 28, font: "Times New Roman" }),
-                          ],
-                        }),
-
-                        // Thêm hiển thị PHÓ BÍ THƯ
-                        new Paragraph({
-                          alignment: AlignmentType.CENTER,
-                          children: [
-                            new TextRun({ text: docData.mainSigner.position.toUpperCase(), bold: true, size: 28, font: "Times New Roman" }),
-                          ],
-                        }),
-                        ...(docData.mainSigner.ktBiThu ? [
-                          new Paragraph({
-                            alignment: AlignmentType.CENTER,
-                            children: [
-                              new TextRun({ text: docData.mainSigner.ktBiThu.toUpperCase(), bold: true, size: 28, font: "Times New Roman" }),
                             ],
                           })
                         ] : []),
