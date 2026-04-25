@@ -358,7 +358,7 @@ export async function exportToWord(docData: AdministrativeDocumentData) {
             new Paragraph({
               alignment: AlignmentType.CENTER,
               children: [
-                new TextRun({ text: "⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯", size: 24, font: "Times New Roman" }),
+                new TextRun({ text: "⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯��⎯", size: 24, font: "Times New Roman" }),
               ],
             }),
             new Paragraph({
@@ -448,18 +448,12 @@ export async function exportToWord(docData: AdministrativeDocumentData) {
                             new TextRun({ text: "Nơi nhận:", bold: true, underline: { type: UnderlineType.SINGLE }, size: 28, font: "Times New Roman" }),
                           ],
                         }),
-                        new Paragraph({
-                          children: [
-                            new TextRun({
-                              text: docData.recipients.map((r, i) => {
-                                const isLastItem = i === docData.recipients.length - 1;
-                                const punctuation = isLastItem ? '.' : ',';
-                                return `${r}${punctuation}`;
-                              }).join(' '),
-                              size: 24,
-                              font: "Times New Roman"
-                            }),
-                          ],
+                        ...docData.recipients.map((line, index) => {
+                          const isLastItem = index === docData.recipients.length - 1;
+                          const punctuation = isLastItem ? '.' : ';';
+                          return new Paragraph({
+                            children: [new TextRun({ text: `- ${line}${punctuation}`, size: 22, font: "Times New Roman" })],
+                          });
                         }),
                       ] : [
                         new Paragraph({
