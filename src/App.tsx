@@ -275,32 +275,52 @@ export default function App() {
     const files = Array.from(e.target.files || []);
     if (files.length === 0) return;
 
+    // Xử lý audio files TRƯỚC KHI set loading state để tránh xung đột với prompt()
+    const audioFilesWithNotes: { file: File; note: string }[] = [];
+    const nonAudioFiles: File[] = [];
+    const audioErrors: string[] = [];
+
+    for (const file of files) {
+      const fileType = file.name.split('.').pop()?.toLowerCase() || '';
+      if (AUDIO_EXTS.includes(fileType)) {
+        const audioNote = window.prompt(
+          `Bạn đang upload file âm thanh: ${file.name}\n\nVui lòng cung cấp mô tả hoặc nội dung chính của file này (để AI sử dụng làm tài liệu tham khảo):\n\n(Để trống để bỏ qua file này)`,
+          ''
+        );
+        if (audioNote && audioNote.trim()) {
+          audioFilesWithNotes.push({ file, note: audioNote.trim() });
+        } else {
+          audioErrors.push(`${file.name}: Bị bỏ qua vì không có nội dung mô tả`);
+        }
+      } else {
+        nonAudioFiles.push(file);
+      }
+    }
+
+    // Nếu không có file nào để xử lý
+    if (audioFilesWithNotes.length === 0 && nonAudioFiles.length === 0) {
+      if (audioErrors.length > 0) {
+        setError(audioErrors.join('\n'));
+      }
+      return;
+    }
+
     setParsingFile(true);
     setError(null);
 
     const newReferenceFiles: ReferenceFile[] = [];
-    const errors: string[] = [];
+    const errors: string[] = [...audioErrors];
 
-    for (const file of files) {
+    // Thêm audio files đã có note
+    for (const { file, note } of audioFilesWithNotes) {
+      newReferenceFiles.push({ name: file.name, content: note });
+    }
+
+    // Xử lý các file không phải audio
+    for (const file of nonAudioFiles) {
       try {
         let text = '';
         const fileType = file.name.split('.').pop()?.toLowerCase() || '';
-
-        // --- Audio files → cho phép upload với ghi chú ---
-        if (AUDIO_EXTS.includes(fileType)) {
-          const audioNote = prompt(
-            `Bạn đang upload file âm thanh: ${file.name}\n\nVui lòng cung cấp mô tả hoặc nội dung chính của file này (để AI sử dụng làm tài liệu tham khảo):\n\n(Để trống để bỏ qua file này)`,
-            ''
-          );
-
-          if (!audioNote || !audioNote.trim()) {
-            errors.push(`${file.name}: Bị bỏ qua vì không có nội dung mô tả`);
-            continue;
-          }
-
-          newReferenceFiles.push({ name: file.name, content: audioNote.trim() });
-          continue;
-        }
 
         // --- Image files → gửi base64 cho AI ---
         if (IMAGE_EXTS.includes(fileType)) {
