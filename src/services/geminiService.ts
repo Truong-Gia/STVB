@@ -391,7 +391,7 @@ export async function exportToWord(docData: AdministrativeDocumentData) {
                           children: [
                             new TextRun({
                               text: `Số ${docData.type === 'CÔNG VĂN'
-                                ? `${docData.docNumber || ''}-CV/${docData.issuingAgencyAbbr}`
+                                ? `${docData.docNumber || ''}-CV/${docData.unitCode}`
                                 : `${docData.docNumber}-${docData.type === 'THÔNG BÁO' ? 'TB' :
                                   docData.type === 'QUYẾT ĐỊNH' ? 'QĐ' :
                                     docData.type === 'NGHỊ QUYẾT' ? 'NQ' :
@@ -400,7 +400,7 @@ export async function exportToWord(docData: AdministrativeDocumentData) {
                                           docData.type === 'CHƯƠNG TRÌNH' ? 'CTr' :
                                             docData.type === 'BIÊN BẢN' ? 'BB' :
                                               docData.type === 'GIẤY MỜI' ? 'GM' : ''
-                                }/${docData.issuingAgencyAbbr}`
+                                }/${docData.unitCode}`
                                 }`,
                               size: 28,
                               font: "Times New Roman"

@@ -46,11 +46,11 @@ export default function PreviewPanel({ data, showSaved }: PreviewPanelProps) {
     const abbr = typeAbbr[data.type];
 
     if (data.documentFormat === 'ĐẢNG') {
-      // Định dạng Đảng: Số-loại/cơ quan
+      // Định dạng Đảng: Số-loại/mã đơn vị
       if (data.type === 'CÔNG VĂN') {
-        return `${data.docNumber}-${abbr || 'CV'}/${data.issuingAgencyAbbr}`;
+        return `${data.docNumber}-${abbr || 'CV'}/${data.unitCode}`;
       }
-      return `${data.docNumber}-${abbr}/${data.issuingAgencyAbbr}`;
+      return `${data.docNumber}-${abbr}/${data.unitCode}`;
     }
 
     // Định dạng Nhà nước
