@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Times New Roman", Times, serif;
+  --font-serif: "Times New Roman", Times, serif;
+}
+
+body {
+  @apply font-sans;
+}
+
+/* Auto-save fade-in animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Print styles */
+@media print {
+  body {
+    margin: 0;
+    padding: 0;
+    background: white;
+  }
+
+  /* Hide everything except the preview */
+  .no-print,
+  .no-print * {
+    display: none !important;
+  }
+
+  /* The editor panel (left side) should be hidden */
+  #editor-panel {
+    display: none !important;
+  }
+
+  /* Preview panel takes full width */
+  #preview-panel {
+    flex: 1 !important;
+    display: flex !important;
+    padding: 0 !important;
+    background: white !important;
+    overflow: visible !important;
+  }
+
+  /* Reset A4 preview scale for print */
+  #preview-panel > div:first-of-type {
+    transform: none !important;
+    margin-bottom: 0 !important;
+    box-shadow: none !important;
+    width: 100% !important;
+    min-height: auto !important;
+  }
+}
+
+/* Mobile toggle button for preview */
+@media (max-width: 767px) {
+  .mobile-preview-toggle {
+    display: flex;
+  }
+}
+
+@media (min-width: 768px) {
+  .mobile-preview-toggle {
+    display: none;
+  }
+}
