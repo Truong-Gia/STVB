@@ -348,53 +348,109 @@ export async function exportToWord(docData: AdministrativeDocumentData) {
               ],
             }),
           ] : [
-            // Header cho Đảng
-            new Paragraph({
-              alignment: AlignmentType.CENTER,
-              children: [
-                new TextRun({ text: "ĐẢNG CỘNG SẢN VIỆT NAM", bold: true, size: 26, font: "Times New Roman" }),
-              ],
-            }),
-            new Paragraph({
-              alignment: AlignmentType.CENTER,
-              children: [
-                new TextRun({ text: "⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯���⎯", size: 24, font: "Times New Roman" }),
-              ],
-            }),
-            new Paragraph({
-              alignment: AlignmentType.CENTER,
-              children: [
-                new TextRun({
-                  text: `Số: ${docData.type === 'CÔNG VĂN'
-                    ? `${docData.docNumber || ''}-CV/${docData.issuingAgencyAbbr}`
-                    : `${docData.docNumber}-${docData.type === 'THÔNG BÁO' ? 'TB' :
-                      docData.type === 'QUYẾT ĐỊNH' ? 'QĐ' :
-                        docData.type === 'NGHỊ QUYẾT' ? 'NQ' :
-                          docData.type === 'KẾT LUẬN' ? 'KL' :
-                            docData.type === 'QUY CHẾ' ? 'QC' :
-                              docData.type === 'CHƯƠNG TRÌNH' ? 'CT' :
-                                docData.type === 'BIÊN BẢN' ? 'BB' :
-                                  docData.type === 'GIẤY MỜI' ? 'GM' : ''
-                    }/${docData.issuingAgencyAbbr}`
-                    }`,
-                  size: 28,
-                  font: "Times New Roman"
+            // Header cho Đảng - Bảng 2 cột tương tự văn bản Hành chính
+            new Table({
+              width: { size: 100, type: WidthType.PERCENTAGE },
+              borders: {
+                top: { style: BorderStyle.NONE },
+                bottom: { style: BorderStyle.NONE },
+                left: { style: BorderStyle.NONE },
+                right: { style: BorderStyle.NONE },
+                insideHorizontal: { style: BorderStyle.NONE },
+                insideVertical: { style: BorderStyle.NONE },
+              },
+              rows: [
+                new TableRow({
+                  children: [
+                    // Cột trái: Cơ quan chủ quản, cơ quan ban hành, số văn bản
+                    new TableCell({
+                      width: { size: docData.headerRatio, type: WidthType.PERCENTAGE },
+                      children: [
+                        ...(docData.parentAgency ? [
+                          new Paragraph({
+                            alignment: AlignmentType.CENTER,
+                            children: [
+                              new TextRun({ text: docData.parentAgency.toUpperCase(), size: 26, font: "Times New Roman" }),
+                            ],
+                          })
+                        ] : []),
+                        new Paragraph({
+                          alignment: AlignmentType.CENTER,
+                          children: [
+                            new TextRun({ text: docData.issuingAgency.toUpperCase(), bold: true, size: 26, font: "Times New Roman" }),
+                          ],
+                        }),
+                        new Paragraph({
+                          alignment: AlignmentType.CENTER,
+                          children: [
+                            new TextRun({ text: "*", size: 28, font: "Times New Roman" }),
+                          ],
+                        }),
+                        new Paragraph({
+                          alignment: AlignmentType.CENTER,
+                          children: [
+                            new TextRun({
+                              text: `Số ${docData.type === 'CÔNG VĂN'
+                                ? `${docData.docNumber || ''}-CV/${docData.issuingAgencyAbbr}`
+                                : `${docData.docNumber}-${docData.type === 'THÔNG BÁO' ? 'TB' :
+                                  docData.type === 'QUYẾT ĐỊNH' ? 'QĐ' :
+                                    docData.type === 'NGHỊ QUYẾT' ? 'NQ' :
+                                      docData.type === 'KẾT LUẬN' ? 'KL' :
+                                        docData.type === 'QUY CHẾ' ? 'QC' :
+                                          docData.type === 'CHƯƠNG TRÌNH' ? 'CTr' :
+                                            docData.type === 'BIÊN BẢN' ? 'BB' :
+                                              docData.type === 'GIẤY MỜI' ? 'GM' : ''
+                                }/${docData.issuingAgencyAbbr}`
+                                }`,
+                              size: 28,
+                              font: "Times New Roman"
+                            }),
+                          ],
+                        }),
+                        // V/v section for CÔNG VĂN
+                        ...(docData.type === 'CÔNG VĂN' && docData.subject ? [
+                          new Paragraph({
+                            alignment: AlignmentType.CENTER,
+                            children: [
+                              new TextRun({
+                                text: docData.subject,
+                                italics: true,
+                                size: 26,
+                                font: "Times New Roman"
+                              }),
+                            ],
+                          })
+                        ] : []),
+                      ],
+                    }),
+                    // Cột phải: ĐẢNG CỘNG SẢN VIỆT NAM, địa danh ngày tháng
+                    new TableCell({
+                      width: { size: 100 - docData.headerRatio, type: WidthType.PERCENTAGE },
+                      children: [
+                        new Paragraph({
+                          alignment: AlignmentType.CENTER,
+                          children: [
+                            new TextRun({ text: "ĐẢNG CỘNG SẢN VIỆT NAM", bold: true, size: 28, font: "Times New Roman" }),
+                          ],
+                        }),
+                        new Paragraph({
+                          alignment: AlignmentType.CENTER,
+                          children: [
+                            new TextRun({ text: "⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯", size: 24, font: "Times New Roman" }),
+                          ],
+                        }),
+                        new Paragraph({
+                          alignment: AlignmentType.CENTER,
+                          children: [
+                            new TextRun({ text: `${docData.location}, ngày   tháng ${new Date(docData.issueDate).getMonth() + 1} năm ${new Date(docData.issueDate).getFullYear()}`, italics: true, size: 28, font: "Times New Roman" }),
+                          ],
+                        }),
+                      ],
+                    }),
+                  ],
                 }),
               ],
             }),
-            ...(docData.type === 'CÔNG VĂN' && docData.subject ? [
-              new Paragraph({
-                alignment: AlignmentType.CENTER,
-                children: [
-                  new TextRun({
-                    text: docData.subject,
-                    italics: true,
-                    size: 26,
-                    font: "Times New Roman"
-                  }),
-                ],
-              })
-            ] : []),
           ]),
 
           // Title and Subject - Only show for non-CÔNG VĂN, non-GIẤY MỜI, non-THÔNG BÁO, non-BIÊN BẢN types
