@@ -506,9 +506,9 @@ export async function exportToWord(docData: AdministrativeDocumentData) {
                         }),
                         ...docData.recipients.map((line, index) => {
                           const isLastItem = index === docData.recipients.length - 1;
-                          const punctuation = isLastItem ? '.' : ';';
+                          const punctuation = isLastItem ? '.' : ',';
                           return new Paragraph({
-                            children: [new TextRun({ text: `- ${line}${punctuation}`, size: 22, font: "Times New Roman" })],
+                            children: [new TextRun({ text: `- ${line}${punctuation}`, size: 24, font: "Times New Roman" })],
                           });
                         }),
                       ] : [
