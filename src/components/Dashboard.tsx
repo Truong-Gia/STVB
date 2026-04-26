@@ -130,7 +130,7 @@ export default function Dashboard({
                 <tr>
                   <td colSpan={5} className="px-6 py-12 text-center text-gray-400">
                     <FileText size={40} className="mx-auto mb-3 text-purple-200" />
-                    <p className="text-sm">Chưa có văn bản nào. Hãy tạo văn bản đầu tiên!</p>
+                    <p className="text-sm">Chưa có văn bản nào. Hãy bắt đầu tạo văn bản!</p>
                   </td>
                 </tr>
               )}
