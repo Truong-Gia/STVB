@@ -177,7 +177,7 @@ export default function Dashboard({
       </div>
 
       <div className="mt-8 text-sm text-white/70 tracking-wide font-medium relative z-10">
-        Tác giả: <span className="text-yellow-300 font-bold">Chau Khéch</span> - Hoàn thiện: <span className="text-yellow-300 font-bold">Lâm Trương - V5.0/1904</span>
+        Tác giả: <span className="text-yellow-300 font-bold">Chau Khéch</span> - Hoàn thiện: <span className="text-yellow-300 font-bold">Lâm Trương - V1.0/2604</span>
       </div>
     </div>
   );
