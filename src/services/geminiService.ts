@@ -501,7 +501,7 @@ export async function exportToWord(docData: AdministrativeDocumentData) {
                       children: docData.documentFormat === 'ĐẢNG' ? [
                         new Paragraph({
                           children: [
-                            new TextRun({ text: "Nơi nhận:", bold: true, underline: { type: UnderlineType.SINGLE }, size: 28, font: "Times New Roman" }),
+                            new TextRun({ text: "Nơi nhận:", bold: false, underline: { type: UnderlineType.SINGLE }, size: 28, font: "Times New Roman" }),
                           ],
                         }),
                         ...docData.recipients.map((line, index) => {

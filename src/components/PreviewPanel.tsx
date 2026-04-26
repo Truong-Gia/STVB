@@ -169,7 +169,7 @@ export default function PreviewPanel({ data, showSaved }: PreviewPanelProps) {
             <div className="space-y-2 w-1/2">
               {data.documentFormat === 'ĐẢNG' ? (
                 <div>
-                  <p className="text-[14pt] font-sans font-bold underline">Nơi nhận:</p>
+                  <p className="text-[14pt] font-sans underline">Nơi nhận:</p>
                   <div className="text-[11pt] font-sans leading-relaxed">
                     {data.recipients.length > 0 ? (
                       data.recipients.map((r, i) => {
