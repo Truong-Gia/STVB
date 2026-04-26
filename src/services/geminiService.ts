@@ -501,14 +501,14 @@ export async function exportToWord(docData: AdministrativeDocumentData) {
                       children: docData.documentFormat === 'ĐẢNG' ? [
                         new Paragraph({
                           children: [
-                            new TextRun({ text: "Nơi nhận:", bold: true, underline: { type: UnderlineType.SINGLE }, size: 28, font: "Times New Roman" }),
+                            new TextRun({ text: "Nơi nhận:", bold: false, underline: { type: UnderlineType.SINGLE }, size: 28, font: "Times New Roman" }),
                           ],
                         }),
                         ...docData.recipients.map((line, index) => {
                           const isLastItem = index === docData.recipients.length - 1;
-                          const punctuation = isLastItem ? '.' : ';';
+                          const punctuation = isLastItem ? '.' : ',';
                           return new Paragraph({
-                            children: [new TextRun({ text: `- ${line}${punctuation}`, size: 22, font: "Times New Roman" })],
+                            children: [new TextRun({ text: `- ${line}${punctuation}`, size: 24, font: "Times New Roman" })],
                           });
                         }),
                       ] : [
@@ -537,11 +537,11 @@ export async function exportToWord(docData: AdministrativeDocumentData) {
                             new TextRun({ text: docData.mainSigner.position.toUpperCase(), bold: true, size: 28, font: "Times New Roman" }),
                           ],
                         }),
-                        ...(docData.mainSigner.ktGiamDoc || docData.mainSigner.ktBiThu ? [
+                        ...(docData.mainSigner.ktChibo || docData.mainSigner.ktGiamDoc || docData.mainSigner.ktBiThu ? [
                           new Paragraph({
                             alignment: AlignmentType.CENTER,
                             children: [
-                              new TextRun({ text: (docData.mainSigner.ktGiamDoc || docData.mainSigner.ktBiThu).toUpperCase(), bold: true, size: 28, font: "Times New Roman" }),
+                              new TextRun({ text: (docData.mainSigner.ktChibo || docData.mainSigner.ktGiamDoc || docData.mainSigner.ktBiThu).toUpperCase(), bold: true, size: 28, font: "Times New Roman" }),
                             ],
                           })
                         ] : []),
@@ -642,11 +642,11 @@ export async function exportToWord(docData: AdministrativeDocumentData) {
                             new TextRun({ text: docData.mainSigner.position.toUpperCase(), bold: true, size: 28, font: "Times New Roman" }),
                           ],
                         }),
-                        ...(docData.mainSigner.ktGiamDoc ? [
+                        ...(docData.mainSigner.ktChibo || docData.mainSigner.ktGiamDoc || docData.mainSigner.ktBiThu ? [
                           new Paragraph({
                             alignment: AlignmentType.CENTER,
                             children: [
-                              new TextRun({ text: docData.mainSigner.ktGiamDoc.toUpperCase(), bold: true, size: 28, font: "Times New Roman" }),
+                              new TextRun({ text: (docData.mainSigner.ktChibo || docData.mainSigner.ktGiamDoc || docData.mainSigner.ktBiThu).toUpperCase(), bold: true, size: 28, font: "Times New Roman" }),
                             ],
                           })
                         ] : []),

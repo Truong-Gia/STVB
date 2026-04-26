@@ -169,12 +169,12 @@ export default function PreviewPanel({ data, showSaved }: PreviewPanelProps) {
             <div className="space-y-2 w-1/2">
               {data.documentFormat === 'ĐẢNG' ? (
                 <div>
-                  <p className="text-[14pt] font-sans font-bold underline">Nơi nhận:</p>
-                  <div className="text-[11pt] font-sans leading-relaxed">
+                  <p className="text-[14pt] font-sans underline">Nơi nhận:</p>
+                  <div className="text-[12pt] font-sans leading-relaxed">
                     {data.recipients.length > 0 ? (
                       data.recipients.map((r, i) => {
                         const isLastItem = i === data.recipients.length - 1;
-                        const punctuation = isLastItem ? '.' : ';';
+                        const punctuation = isLastItem ? '.' : ',';
                         return (
                           <p key={i}>- {r}{punctuation}</p>
                         );
@@ -207,8 +207,8 @@ export default function PreviewPanel({ data, showSaved }: PreviewPanelProps) {
             <div className="text-center space-y-16 w-1/2">
               <div className="space-y-1">
                 <p className="text-[14pt] font-sans font-bold uppercase">{data.mainSigner.position || '[CHỨC VỤ]'}</p>
-                {(data.mainSigner?.ktGiamDoc || data.mainSigner?.ktBiThu) && (
-                  <p className="text-[14pt] font-sans font-bold uppercase">{data.mainSigner.ktGiamDoc || data.mainSigner.ktBiThu}</p>
+                {(data.mainSigner?.ktChibo || data.mainSigner?.ktGiamDoc || data.mainSigner?.ktBiThu) && (
+                  <p className="text-[14pt] font-sans font-bold uppercase">{data.mainSigner.ktChibo || data.mainSigner.ktGiamDoc || data.mainSigner.ktBiThu}</p>
                 )}
                 <p className="text-[10pt] font-sans italic opacity-50">(Ký tên, đóng dấu)</p>
               </div>
@@ -240,8 +240,8 @@ export default function PreviewPanel({ data, showSaved }: PreviewPanelProps) {
             <div className="flex-1 text-center space-y-16">
               <div className="space-y-1">
                 <p className="text-[14pt] font-sans font-bold uppercase">{data.mainSigner.position || '[CHỨC VỤ]'}</p>
-                {(data.mainSigner?.ktGiamDoc || data.mainSigner?.ktBiThu) && (
-                  <p className="text-[14pt] font-sans font-bold uppercase">{data.mainSigner.ktGiamDoc || data.mainSigner.ktBiThu}</p>
+                {(data.mainSigner?.ktChibo || data.mainSigner?.ktGiamDoc || data.mainSigner?.ktBiThu) && (
+                  <p className="text-[14pt] font-sans font-bold uppercase">{data.mainSigner.ktChibo || data.mainSigner.ktGiamDoc || data.mainSigner.ktBiThu}</p>
                 )}
                 <p className="text-[10pt] font-sans italic opacity-50">(Ký tên, đóng dấu)</p>
               </div>

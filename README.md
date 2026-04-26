@@ -1,11 +1,11 @@
-🚀 Trợ lý AI Soạn thảo Văn bản Hành chính
+🚀 Trợ lý AI Soạn thảo Văn bản
 
-✅ Ứng dụng giúp bạn soạn thảo nhanh chóng các loại văn bản hành chính như: Kế hoạch, Thông báo, Quyết định, Công văn, Giấy mời… đảm bảo đúng thể thức theo Nghị định 30/2020/NĐ-CP.
+✅ Ứng dụng giúp bạn soạn thảo nhanh chóng các loại văn bản hành chính và văn bản ĐẢng như: Kế hoạch, Thông báo, Quyết định, Công văn, Giấy mời… đảm bảo đúng thể thức theo Nghị định 30/2020/NĐ-CP và Hướng dẫn số 36-HD/TW.
 Không còn phải copy mẫu cũ rồi chỉnh sửa thủ công — hạn chế tối đa sai sót.
 Không cần nhập đi nhập lại thông tin như tên cơ quan, người ký, nơi nhận…
 
 🎯 Công cụ này giúp bạn:
-📝 Hỗ trợ 8 loại văn bản phổ biến:
+📝 Hỗ trợ nhiều loại văn bản phổ biến:
 Thông báo,
 Kế hoạch,
 Quyết định,
@@ -13,10 +13,11 @@ Công văn,
 Tờ trình,
 Báo cáo,
 Biên bản,
-Giấy mời.
+Giấy mời,
+Quy chế...
 
 🤖 AI soạn nội dung tự động:
-Chỉ cần nhập yêu cầu bằng tiếng Việt → AI sẽ tạo nội dung chuẩn văn phong hành chính, mạch lạc, đúng quy định.
+Chỉ cần nhập yêu cầu bằng tiếng Việt → AI sẽ tạo nội dung chuẩn văn phong, mạch lạc, đúng quy định.
 
 📎 Tải tài liệu tham khảo:
 Hỗ trợ nhiều định dạng: Word (.docx), PDF, Excel, hình ảnh, file ghi âm cuộc họp…

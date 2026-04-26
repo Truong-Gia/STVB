@@ -784,6 +784,26 @@ export default function App() {
                       </label>
                     </div>
 
+                    <div className="flex items-center gap-2">
+                      <label className="flex items-center gap-2 cursor-pointer">
+                        <input
+                          type="checkbox"
+                          checked={!!data.mainSigner.ktChibo}
+                          onChange={e => setData(prev => ({
+                            ...prev,
+                            mainSigner: {
+                              ...prev.mainSigner,
+                              ktChibo: e.target.checked ? 'BÍ THƯ' : undefined
+                            }
+                          }))}
+                          className="w-4 h-4 accent-[#C1272D]"
+                        />
+                        <span className="text-[10px] font-bold uppercase tracking-widest text-[#141414]/40">
+                          BÍ THƯ
+                        </span>
+                      </label>
+                    </div>
+
                   </div>
 
                   <div className="space-y-4">
