@@ -793,7 +793,7 @@ export default function App() {
                             ...prev,
                             mainSigner: {
                               ...prev.mainSigner,
-                              ktBiThu: e.target.checked ? 'BÍ THƯ' : undefined
+                              ktChibo: e.target.checked ? 'BÍ THƯ' : undefined
                             }
                           }))}
                           className="w-4 h-4 accent-[#C1272D]"
