@@ -61,7 +61,7 @@ export default function Dashboard({
           </span>
         </button>
 
-        <p className="text-white/60 text-xs mt-3 tracking-wide">Tạo văn bản chuẩn Nghị định 30/2020/NĐ-CP trong vài phút</p>
+        <p className="text-white/60 text-xs mt-3 tracking-wide">Tạo văn bản chuẩn hành chính và văn bản Đảng trong vài phút</p>
       </div>
 
       {/* Documents panel */}
