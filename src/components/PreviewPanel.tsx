@@ -207,8 +207,8 @@ export default function PreviewPanel({ data, showSaved }: PreviewPanelProps) {
             <div className="text-center space-y-16 w-1/2">
               <div className="space-y-1">
                 <p className="text-[14pt] font-sans font-bold uppercase">{data.mainSigner.position || '[CHỨC VỤ]'}</p>
-                {(data.mainSigner?.ktGiamDoc || data.mainSigner?.ktGiamDoc || data.mainSigner?.ktBiThu) && (
-                  <p className="text-[14pt] font-sans font-bold uppercase">{data.mainSigner.ktGiamDoc || data.mainSigner.ktGiamDoc || data.mainSigner.ktBiThu}</p>
+                {(data.mainSigner?.ktChibo || data.mainSigner?.ktGiamDoc || data.mainSigner?.ktBiThu) && (
+                  <p className="text-[14pt] font-sans font-bold uppercase">{data.mainSigner.ktChibo || data.mainSigner.ktGiamDoc || data.mainSigner.ktBiThu}</p>
                 )}
                 <p className="text-[10pt] font-sans italic opacity-50">(Ký tên, đóng dấu)</p>
               </div>
@@ -240,8 +240,8 @@ export default function PreviewPanel({ data, showSaved }: PreviewPanelProps) {
             <div className="flex-1 text-center space-y-16">
               <div className="space-y-1">
                 <p className="text-[14pt] font-sans font-bold uppercase">{data.mainSigner.position || '[CHỨC VỤ]'}</p>
-                {(data.mainSigner?.ktGiamDoc || data.mainSigner?.ktBiThu) && (
-                  <p className="text-[14pt] font-sans font-bold uppercase">{data.mainSigner.ktGiamDoc || data.mainSigner.ktBiThu}</p>
+                {(data.mainSigner?.ktChibo || data.mainSigner?.ktGiamDoc || data.mainSigner?.ktBiThu) && (
+                  <p className="text-[14pt] font-sans font-bold uppercase">{data.mainSigner.ktChibo || data.mainSigner.ktGiamDoc || data.mainSigner.ktBiThu}</p>
                 )}
                 <p className="text-[10pt] font-sans italic opacity-50">(Ký tên, đóng dấu)</p>
               </div>

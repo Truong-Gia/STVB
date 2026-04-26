@@ -537,11 +537,11 @@ export async function exportToWord(docData: AdministrativeDocumentData) {
                             new TextRun({ text: docData.mainSigner.position.toUpperCase(), bold: true, size: 28, font: "Times New Roman" }),
                           ],
                         }),
-                        ...(docData.mainSigner.ktGiamDoc || docData.mainSigner.ktBiThu ? [
+                        ...(docData.mainSigner.ktChibo || docData.mainSigner.ktGiamDoc || docData.mainSigner.ktBiThu ? [
                           new Paragraph({
                             alignment: AlignmentType.CENTER,
                             children: [
-                              new TextRun({ text: (docData.mainSigner.ktGiamDoc || docData.mainSigner.ktBiThu).toUpperCase(), bold: true, size: 28, font: "Times New Roman" }),
+                              new TextRun({ text: (docData.mainSigner.ktChibo || docData.mainSigner.ktGiamDoc || docData.mainSigner.ktBiThu).toUpperCase(), bold: true, size: 28, font: "Times New Roman" }),
                             ],
                           })
                         ] : []),
@@ -642,11 +642,11 @@ export async function exportToWord(docData: AdministrativeDocumentData) {
                             new TextRun({ text: docData.mainSigner.position.toUpperCase(), bold: true, size: 28, font: "Times New Roman" }),
                           ],
                         }),
-                        ...(docData.mainSigner.ktGiamDoc || docData.mainSigner.ktBiThu ? [
+                        ...(docData.mainSigner.ktChibo || docData.mainSigner.ktGiamDoc || docData.mainSigner.ktBiThu ? [
                           new Paragraph({
                             alignment: AlignmentType.CENTER,
                             children: [
-                              new TextRun({ text: (docData.mainSigner.ktGiamDoc || docData.mainSigner.ktBiThu).toUpperCase(), bold: true, size: 28, font: "Times New Roman" }),
+                              new TextRun({ text: (docData.mainSigner.ktChibo || docData.mainSigner.ktGiamDoc || docData.mainSigner.ktBiThu).toUpperCase(), bold: true, size: 28, font: "Times New Roman" }),
                             ],
                           })
                         ] : []),
