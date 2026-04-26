@@ -170,11 +170,11 @@ export default function PreviewPanel({ data, showSaved }: PreviewPanelProps) {
               {data.documentFormat === 'ĐẢNG' ? (
                 <div>
                   <p className="text-[14pt] font-sans underline">Nơi nhận:</p>
-                  <div className="text-[11pt] font-sans leading-relaxed">
+                  <div className="text-[12pt] font-sans leading-relaxed">
                     {data.recipients.length > 0 ? (
                       data.recipients.map((r, i) => {
                         const isLastItem = i === data.recipients.length - 1;
-                        const punctuation = isLastItem ? '.' : ';';
+                        const punctuation = isLastItem ? '.' : ',';
                         return (
                           <p key={i}>- {r}{punctuation}</p>
                         );
