@@ -6,6 +6,7 @@ export interface Signer {
   id: string;
   position: string;
   fullName: string;
+  ktChibo?: string; //BÍ THƯ
   ktGiamDoc?: string; // PHÓ GIÁM ĐỐC field
   KtBiThu?: string; // PHÓ BÍ THƯ
 }
