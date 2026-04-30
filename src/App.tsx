@@ -611,17 +611,6 @@ export default function App() {
                     </div>
                   </div>
 
-                  <div className="space-y-1.5">
-                    <label className="text-[10px] font-bold uppercase tracking-widest text-[#141414]/60">TÊN VĂN BẢN</label>
-                    <input
-                      type="text"
-                      value={data.name}
-                      onChange={e => setData(prev => ({ ...prev, name: e.target.value }))}
-                      placeholder="Ví dụ: Thông báo kết luận họp giao ban"
-                      className="w-full p-2.5 bg-[#F8F9FA] border border-[#141414]/10 rounded-lg text-sm outline-none focus:border-[#C1272D]"
-                    />
-                  </div>
-
                   <div className="p-4 border-l-4 border-[#C1272D] bg-[#F8F9FA] rounded-r-lg space-y-4">
                     <p className="text-xs font-bold">Đơn vị ban hành chính</p>
                     <div className="grid grid-cols-2 gap-4">
