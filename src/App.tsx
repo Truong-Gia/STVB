@@ -879,7 +879,7 @@ export default function App() {
                       onClick={handleNext}
                       className="flex-[2] py-3 bg-[#C1272D] text-white rounded-xl font-bold hover:bg-[#A11F24] transition-all flex items-center justify-center gap-2 text-xs"
                     >
-                      Tiếp tục
+                      Chuyển sang bước SOẠN THẢO
                       <ChevronRight size={14} />
                     </button>
                   </div>
