@@ -429,7 +429,7 @@ export default function App() {
     <div className="px-4 py-2.5 flex items-center justify-between shadow-lg no-print sticky top-0 z-30" style={{ background: 'linear-gradient(135deg, #0f1b34 0%, #1e3a8a 60%, #f97316 100%)' }}>
       <div className="flex items-center gap-2">
         <FileText size={20} className="text-yellow-300" />
-        <span className="font-bold text-sm text-white font-sans hidden sm:inline">Trợ lý AI Soạn thảo văn bản hành chính</span>
+        <span className="font-bold text-sm text-white font-sans hidden sm:inline">Trợ lý AI Soạn thảo văn bản</span>
       </div>
       <div className="flex items-center gap-2">
         <button
@@ -542,7 +542,7 @@ export default function App() {
                   exit={{ opacity: 0, x: 20 }}
                   className="space-y-6"
                 >
-                  <h2 className="text-xl font-bold">Thiết lập ban đầu</h2>
+                  <h2 className="text-xl font-bold">Tùy chỉnh thông tin văn bản</h2>
 
                   <div className="grid grid-cols-2 gap-4">
                     <div className="space-y-1.5">
@@ -594,32 +594,21 @@ export default function App() {
                         )}
                       </select>
                     </div>
-                    <div className="flex items-end pb-1">
-                      <label className="flex items-center gap-2 cursor-pointer group">
-                        <div className="relative">
-                          <input
-                            type="checkbox"
-                            checked={data.isJoint}
-                            onChange={e => setData(prev => ({ ...prev, isJoint: e.target.checked }))}
-                            className="sr-only"
-                          />
-                          <div className={`w-10 h-5 rounded-full transition-colors ${data.isJoint ? 'bg-[#C1272D]' : 'bg-[#141414]/10'}`} />
-                          <div className={`absolute top-1 left-1 w-3 h-3 bg-white rounded-full transition-transform ${data.isJoint ? 'translate-x-5' : 'translate-x-0'}`} />
-                        </div>
-                        <span className="text-[10px] font-bold uppercase tracking-widest text-[#141414]/60 group-hover:text-[#141414]">VĂN BẢN CÓ 02 ĐƠN VỊ CÙNG KÝ</span>
-                      </label>
-                    </div>
-                  </div>
+                    
 
-                  <div className="space-y-1.5">
-                    <label className="text-[10px] font-bold uppercase tracking-widest text-[#141414]/60">TÊN VĂN BẢN</label>
-                    <input
-                      type="text"
-                      value={data.name}
-                      onChange={e => setData(prev => ({ ...prev, name: e.target.value }))}
-                      placeholder="Ví dụ: Thông báo kết luận họp giao ban"
-                      className="w-full p-2.5 bg-[#F8F9FA] border border-[#141414]/10 rounded-lg text-sm outline-none focus:border-[#C1272D]"
-                    />
+
+
+
+
+
+
+
+
+
+
+
+
+
                   </div>
 
                   <div className="p-4 border-l-4 border-[#C1272D] bg-[#F8F9FA] rounded-r-lg space-y-4">
@@ -835,7 +824,7 @@ export default function App() {
 
                   <div className="space-y-4">
                     <div className="flex items-center justify-between">
-                      <p className="text-xs font-bold">THÔNG TIN NGƯỜI KÝ THỨ HAI</p>
+                      <p className="text-xs font-bold">THÔNG TIN NGƯỜI KÝ THỨ HAI (dành cho loại văn bản BIÊN BẢN)</p>
                       <button
                         onClick={() => setShowAddSigner(true)}
                         className="text-[10px] font-bold text-[#C1272D] hover:underline flex items-center gap-1"
@@ -884,13 +873,13 @@ export default function App() {
                       className="flex-1 py-3 border border-[#141414]/10 text-[#141414]/60 rounded-xl font-bold hover:bg-[#141414]/5 transition-all flex items-center justify-center gap-2 text-xs"
                     >
                       <RefreshCw size={14} />
-                      Làm mới
+                      Khôi phục
                     </button>
                     <button
                       onClick={handleNext}
                       className="flex-[2] py-3 bg-[#C1272D] text-white rounded-xl font-bold hover:bg-[#A11F24] transition-all flex items-center justify-center gap-2 text-xs"
                     >
-                      Tiếp tục
+                      Chuyển sang bước SOẠN THẢO
                       <ChevronRight size={14} />
                     </button>
                   </div>
@@ -905,7 +894,7 @@ export default function App() {
                   exit={{ opacity: 0, x: 20 }}
                   className="space-y-6"
                 >
-                  <h2 className="text-xl font-bold">Nhập tóm tắt trích yếu Yêu cầu và những ý chính nội dung cần làm để AI thực hiện</h2>
+                  <h2 className="text-xl font-bold">Nhập tóm tắt trích yếu và nội dung chính của văn bản vào từng ô tương ứng để AI thực hiện</h2>
                   <div className="space-y-4">
                     <div className="space-y-1.5">
                       <label className="text-[10px] font-bold uppercase tracking-widest text-[#141414]/40">TÀI LIỆU THAM KHẢO (TÙY CHỌN)</label>

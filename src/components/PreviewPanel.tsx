@@ -133,8 +133,8 @@ export default function PreviewPanel({ data, showSaved }: PreviewPanelProps) {
               <p className="text-[13pt] font-sans font-bold uppercase tracking-tight leading-tight">{data.issuingAgency || '[CƠ QUAN BAN HÀNH]'}</p>
               <div className="w-16 h-[1px] bg-[#141414] mx-auto mt-1" />
               <p className="text-[13pt] font-sans mt-1">Số: {getDocNotation()}</p>
-              {data.subject && (
-                <p className="text-[13pt] font-sans italic mt-2">{data.subject}</p>
+              {data.subject && data.type === 'CÔNG VĂN' && (
+                <p className="text-[13pt] font-sans mt-2">{data.subject}</p>
               )}
             </div>
             <div className="text-center space-y-1" style={{ width: `${100 - data.headerRatio}%` }}>
@@ -150,7 +150,7 @@ export default function PreviewPanel({ data, showSaved }: PreviewPanelProps) {
         {/* Title */}
         <div className="text-center space-y-2 py-8">
           {data.type?.toUpperCase() !== "CÔNG VĂN" && (<h3 className="text-[14pt] font-bold uppercase leading-tight"> {data.type} </h3>)}
-          {data.type?.toUpperCase() !== "CÔNG VĂN" && (<p className="text-[14pt] font-bold italic">{data.subject || '...'}</p>)}
+          {data.type?.toUpperCase() !== "CÔNG VĂN" && (<p className="text-[14pt] font-bold">{data.subject || '...'}</p>)}
           {data.type?.toUpperCase() !== "CÔNG VĂN" && (<div className="w-24 h-[1px] bg-[#141414] mx-auto mt-1" />)}
         </div>
 
