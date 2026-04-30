@@ -429,7 +429,7 @@ export default function App() {
     <div className="px-4 py-2.5 flex items-center justify-between shadow-lg no-print sticky top-0 z-30" style={{ background: 'linear-gradient(135deg, #0f1b34 0%, #1e3a8a 60%, #f97316 100%)' }}>
       <div className="flex items-center gap-2">
         <FileText size={20} className="text-yellow-300" />
-        <span className="font-bold text-sm text-white font-sans hidden sm:inline">Trợ lý AI Soạn thảo văn bản hành chính</span>
+        <span className="font-bold text-sm text-white font-sans hidden sm:inline">Trợ lý AI Soạn thảo văn bản</span>
       </div>
       <div className="flex items-center gap-2">
         <button
