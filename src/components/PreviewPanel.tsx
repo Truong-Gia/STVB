@@ -150,7 +150,7 @@ export default function PreviewPanel({ data, showSaved }: PreviewPanelProps) {
         {/* Title */}
         <div className="text-center space-y-2 py-8">
           {data.type?.toUpperCase() !== "CÔNG VĂN" && (<h3 className="text-[14pt] font-bold uppercase leading-tight"> {data.type} </h3>)}
-          {data.type?.toUpperCase() !== "CÔNG VĂN" && data.documentFormat === 'ĐẢNG' && (<p className="text-[14pt] font-bold">{data.subject || '...'}</p>)}
+          {data.type?.toUpperCase() !== "CÔNG VĂN" && (<p className="text-[14pt] font-bold">{data.subject || '...'}</p>)}
           {data.type?.toUpperCase() !== "CÔNG VĂN" && (<div className="w-24 h-[1px] bg-[#141414] mx-auto mt-1" />)}
         </div>
 
