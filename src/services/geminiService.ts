@@ -179,7 +179,7 @@ function isSectionHeading(line: string): boolean {
     (trimmed === trimmed.toUpperCase() && trimmed.length > 3 && /[A-ZÀ-Ỹ]/.test(trimmed));
 }
 
-function buildContentParagraphs(content: string): Paragraph[] {
+function buildContentParagraphs(content: string, documentFormat?: string, type?: string): Paragraph[] {
   const lines = content.split("\n");
   const paragraphs: Paragraph[] = [];
   let prevWasEmpty = false;
@@ -191,7 +191,12 @@ function buildContentParagraphs(content: string): Paragraph[] {
     }
 
     const isHeading = isSectionHeading(line);
-    const isCanCu = /^(Căn cứ|Theo đề nghị)/.test(line.trim()); //Thêm Căn cứ để chỉnh in nghiêng
+    const isCanCu = /^(Căn cứ|Theo đề nghị)/.test(line.trim());
+    // In nghiêng Căn cứ chỉ khi: Văn bản Đảng HOẶC (Văn bản Hành chính AND loại Quyết định)
+    const shouldItalicizeCanCu = isCanCu && (
+      documentFormat === 'ĐẢNG' || 
+      (documentFormat === 'HÀNH CHÍNH' && type === 'QUYẾT ĐỊNH')
+    );
     const spacingBefore = isHeading ? 200 : (prevWasEmpty ? 120 : 60);
 
     paragraphs.push(
@@ -209,7 +214,7 @@ function buildContentParagraphs(content: string): Paragraph[] {
           new TextRun({
             text: line,
             bold: isHeading,
-            italics: isCanCu, // 👈 CHỈNH Ở ĐÂY để in nghiêng Căn cứ
+            italics: shouldItalicizeCanCu,
             size: 28,
             font: "Times New Roman"
           })
@@ -477,8 +482,8 @@ export async function exportToWord(docData: AdministrativeDocumentData) {
             children: [new TextRun({ text: '' })],
           })]),
 
-          // Content
-          ...buildContentParagraphs(docData.content),
+  // Content
+  ...buildContentParagraphs(docData.content, docData.documentFormat, docData.type),
 
           // Footer: Nơi nhận and Signer
           ...(docData.type !== 'BIÊN BẢN' ? [
