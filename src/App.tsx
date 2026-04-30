@@ -873,7 +873,7 @@ export default function App() {
                       className="flex-1 py-3 border border-[#141414]/10 text-[#141414]/60 rounded-xl font-bold hover:bg-[#141414]/5 transition-all flex items-center justify-center gap-2 text-xs"
                     >
                       <RefreshCw size={14} />
-                      Làm mới
+                      Khôi phục
                     </button>
                     <button
                       onClick={handleNext}
