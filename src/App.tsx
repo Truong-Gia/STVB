@@ -542,7 +542,7 @@ export default function App() {
                   exit={{ opacity: 0, x: 20 }}
                   className="space-y-6"
                 >
-                  <h2 className="text-xl font-bold">Thiết lập ban đầu</h2>
+                  <h2 className="text-xl font-bold">Tùy chỉnh thông tin văn bản</h2>
 
                   <div className="grid grid-cols-2 gap-4">
                     <div className="space-y-1.5">
@@ -894,7 +894,7 @@ export default function App() {
                   exit={{ opacity: 0, x: 20 }}
                   className="space-y-6"
                 >
-                  <h2 className="text-xl font-bold">Nhập tóm tắt trích yếu Yêu cầu và những ý chính nội dung cần làm để AI thực hiện</h2>
+                  <h2 className="text-xl font-bold">Nhập tóm tắt trích yếu và nội dung chính của văn bản vào từng ô tương ứng để AI thực hiện</h2>
                   <div className="space-y-4">
                     <div className="space-y-1.5">
                       <label className="text-[10px] font-bold uppercase tracking-widest text-[#141414]/40">TÀI LIỆU THAM KHẢO (TÙY CHỌN)</label>
