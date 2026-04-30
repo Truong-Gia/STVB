@@ -110,7 +110,7 @@ Yêu cầu: Hãy soạn thảo nội dung chi tiết cho văn bản này dựa t
   }
 
   textPrompt += `\nQuy tắc soạn thảo:
-1. Văn phong: Trang trọng, khách quan, chính xác, sử dụng thuật ngữ hành chính nhà nước chuẩn đối với loại văn bản Hành chính và văn phong, thuật ngữ của cơ quan Đảng đối với loại văn bản Đảng.
+1. Văn phong: Trang trọng, khách quan, chính xác, sử dụng thuật ngữ hành chính nhà nước chuẩn đối với hình thức văn bản Hành chính và văn phong, thuật ngữ của cơ quan Đảng đối với hình thức văn bản Đảng.
 2. Cấu trúc:
    - Nếu là QUYẾT ĐỊNH: Phải có phần "Căn cứ..." được in nghiêng (ít nhất 2 căn cứ liên quan), sau đó là "QUYẾT ĐỊNH:", tiếp theo là các Điều (Điều 1, Điều 2...). Dùng từ "Theo đề nghị", không dùng "Xét đề nghị". Chỉ dùng bold cho Điều 1, Điều 2... Không bold cho nội dung các điều.
    - Nếu là THÔNG BÁO: Không có phần "Kính gửi". Nội dung rõ ràng, mạch lạc, có phần mở đầu nêu lý do, phần nội dung chính và phần kết luận thực hiện.
