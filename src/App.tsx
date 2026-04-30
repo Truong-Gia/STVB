@@ -821,24 +821,10 @@ export default function App() {
                       ))}
                     </div>
                   </div>
-<div className="flex items-end pb-1">
-                      <label className="flex items-center gap-2 cursor-pointer group">
-                        <div className="relative">
-                          <input
-                            type="checkbox"
-                            checked={data.isJoint}
-                            onChange={e => setData(prev => ({ ...prev, isJoint: e.target.checked }))}
-                            className="sr-only"
-                          />
-                          <div className={`w-10 h-5 rounded-full transition-colors ${data.isJoint ? 'bg-[#C1272D]' : 'bg-[#141414]/10'}`} />
-                          <div className={`absolute top-1 left-1 w-3 h-3 bg-white rounded-full transition-transform ${data.isJoint ? 'translate-x-5' : 'translate-x-0'}`} />
-                        </div>
-                        <span className="text-[10px] font-bold uppercase tracking-widest text-[#141414]/60 group-hover:text-[#141414]">VĂN BẢN CÓ 02 ĐƠN VỊ CÙNG KÝ</span>
-                      </label>
-                    </div>
+
                   <div className="space-y-4">
                     <div className="flex items-center justify-between">
-                      <p className="text-xs font-bold">THÔNG TIN NGƯỜI KÝ THỨ HAI</p>
+                      <p className="text-xs font-bold">THÔNG TIN NGƯỜI KÝ THỨ HAI (dành cho loại văn bản BIÊN BẢN)</p>
                       <button
                         onClick={() => setShowAddSigner(true)}
                         className="text-[10px] font-bold text-[#C1272D] hover:underline flex items-center gap-1"
