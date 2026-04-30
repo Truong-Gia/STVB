@@ -110,11 +110,11 @@ Yêu cầu: Hãy soạn thảo nội dung chi tiết cho văn bản này dựa t
   }
 
   textPrompt += `\nQuy tắc soạn thảo:
-1. Văn phong: Trang trọng, khách quan, chính xác, sử dụng thuật ngữ hành chính nhà nước chuẩn.
+1. Văn phong: Trang trọng, khách quan, chính xác, sử dụng thuật ngữ hành chính nhà nước chuẩn đối với loại văn bản Hành chính và văn phong, thuật ngữ của cơ quan Đảng đối với loại văn bản Đảng.
 2. Cấu trúc:
    - Nếu là QUYẾT ĐỊNH: Phải có phần "Căn cứ..." được in nghiêng (ít nhất 2 căn cứ liên quan), sau đó là "QUYẾT ĐỊNH:", tiếp theo là các Điều (Điều 1, Điều 2...). Dùng từ "Theo đề nghị", không dùng "Xét đề nghị". Chỉ dùng bold cho Điều 1, Điều 2... Không bold cho nội dung các điều.
    - Nếu là THÔNG BÁO: Không có phần "Kính gửi". Nội dung rõ ràng, mạch lạc, có phần mở đầu nêu lý do, phần nội dung chính và phần kết luận thực hiện.
-   - Nếu là CÔNG VĂN: Phải có phần "Kính gửi". Nội dung rõ ràng, mạch lạc, có phần căn cứ để phát hành công văn, phần nội dung chính và phần kết luận/yêu cầu thực hiện.
+   - Nếu là CÔNG VĂN: Phải có phần "Kính gửi", phần kính gửi được canh giữa theo lề giấy chuẩn của từng loại văn bản Hành chính hoặc văn bản Đảng. Nội dung rõ ràng, mạch lạc, có phần căn cứ để phát hành công văn, phần nội dung chính và phần kết luận/yêu cầu thực hiện.
    - Nếu là TỜ TRÌNH: Phải có phần "Kính gửi", nêu lý do tờ trình, nội dung đề xuất và kiến nghị. Nếu có Căn cứ thì không cần in nghiêng.
    - Nếu là GIẤY MỜI: Không có phần "Kính gửi". Nội dung bao gồm Thành phần tham dự, Nội dung họp, Thời gian và địa điểm. Nói dung rõ ràng, bôi đậm bold tại mục thời gian để nhấn mạnh tính quan trọng.
    - Nếu là BIÊN BẢN: Ghi rõ thời gian, địa điểm, thành phần tham dự, nội dung diễn biến (dựa trên file âm thanh/tài liệu nếu có), và kết luận.
