@@ -133,7 +133,7 @@ export default function PreviewPanel({ data, showSaved }: PreviewPanelProps) {
               <p className="text-[13pt] font-sans font-bold uppercase tracking-tight leading-tight">{data.issuingAgency || '[CƠ QUAN BAN HÀNH]'}</p>
               <div className="w-16 h-[1px] bg-[#141414] mx-auto mt-1" />
               <p className="text-[13pt] font-sans mt-1">Số: {getDocNotation()}</p>
-              {data.subject && (
+              {data.subject && data.type === 'CÔNG VĂN' && (
                 <p className="text-[13pt] font-sans italic mt-2">{data.subject}</p>
               )}
             </div>
