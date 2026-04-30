@@ -194,8 +194,7 @@ function buildContentParagraphs(content: string, documentFormat?: string, type?:
     const isCanCu = /^(Căn cứ|Theo đề nghị)/.test(line.trim());
     // In nghiêng Căn cứ chỉ khi: Văn bản Đảng HOẶC (Văn bản Hành chính AND loại Quyết định)
     const shouldItalicizeCanCu = isCanCu && (
-      documentFormat === 'ĐẢNG' || 
-      (documentFormat === 'HÀNH CHÍNH' && type === 'QUYẾT ĐỊNH')
+     documentFormat === 'HÀNH CHÍNH' && type === 'QUYẾT ĐỊNH'
     );
     const spacingBefore = isHeading ? 200 : (prevWasEmpty ? 120 : 60);
 
