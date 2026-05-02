@@ -31,6 +31,7 @@ import * as mammoth from 'mammoth';
 import * as XLSX from 'xlsx';
 import * as pdfjsLib from 'pdfjs-dist';
 import pdfWorker from 'pdfjs-dist/build/pdf.worker.min.mjs?url';
+import Tesseract from 'tesseract.js';
 
 // Set up PDF.js worker
 pdfjsLib.GlobalWorkerOptions.workerSrc = pdfWorker;
@@ -339,16 +340,53 @@ export default function App() {
         }
         // --- PDF ---
         else if (fileType === 'pdf') {
+          console.log("[v0] Xử lý PDF:", file.name);
           const arrayBuffer = await file.arrayBuffer();
           const loadingTask = pdfjsLib.getDocument({ data: arrayBuffer });
           const pdf = await loadingTask.promise;
+          console.log("[v0] PDF loaded, pages:", pdf.numPages);
           let fullText = '';
+          let hasTextContent = false;
+          
+          // Bước 1: Thử trích xuất text từ PDF
           for (let i = 1; i <= pdf.numPages; i++) {
             const page = await pdf.getPage(i);
             const content = await page.getTextContent();
-            const strings = content.items.map((item: any) => item.str);
-            fullText += strings.join(' ') + '\n';
+            const strings = content.items.map((item: any) => item.str).filter((s: string) => s.trim());
+            if (strings.length > 0) {
+              hasTextContent = true;
+              fullText += strings.join(' ') + '\n';
+            }
           }
+          
+          console.log("[v0] PDF text extracted, length:", fullText.length, "hasText:", hasTextContent);
+          
+          // Bước 2: Nếu không có text (image-based PDF), sử dụng OCR
+          if (!hasTextContent || fullText.trim().length === 0) {
+            console.log("[v0] Phát hiện PDF dựa trên ảnh, sử dụng OCR...");
+            for (let i = 1; i <= pdf.numPages; i++) {
+              try {
+                const page = await pdf.getPage(i);
+                const canvas = document.createElement('canvas');
+                const viewport = page.getViewport({ scale: 2 });
+                canvas.width = viewport.width;
+                canvas.height = viewport.height;
+                const context = canvas.getContext('2d');
+                const renderTask = page.render({ canvasContext: context!, viewport });
+                await renderTask.promise;
+                
+                const imageData = canvas.toDataURL('image/png');
+                console.log("[v0] Trang", i, "- OCR đang xử lý...");
+                const result = await Tesseract.recognize(imageData, 'vie');
+                const pageText = result.data.text;
+                fullText += pageText + '\n';
+                console.log("[v0] Trang", i, "- OCR xong, text length:", pageText.length);
+              } catch (ocrError) {
+                console.error("[v0] Lỗi OCR trang", i, ":", ocrError);
+              }
+            }
+          }
+          
           text = fullText;
         }
         // --- Excel (.xlsx, .xls, .csv) ---
@@ -928,7 +966,7 @@ export default function App() {
                           ) : (
                             <div className="flex flex-col items-center gap-2 text-center">
                               <Upload size={24} className="text-[#141414]/40" />
-                              <p className="text-xs font-medium">Tải lên nhiều file cùng lúc (Word, PDF, Excel, Ảnh, Âm thanh, TXT...)</p>
+                              <p className="text-xs font-medium">Tải lên nhiều file cùng lúc (Word, PDF, Excel, Ảnh, Âm thanh, TXT...) - File PDF kích thước dưới 1MB</p>
                               <p className="text-[10px] text-[#141414]/40">Hỗ trợ: .docx .pdf .xlsx .csv .txt .jpg .png .mp3 và nhiều định dạng khác</p>
                             </div>
                           )}

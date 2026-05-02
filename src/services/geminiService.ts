@@ -194,7 +194,7 @@ function buildContentParagraphs(content: string, documentFormat?: string, type?:
     const isCanCu = /^(Căn cứ|Theo đề nghị)/.test(line.trim());
     // In nghiêng Căn cứ chỉ khi: Văn bản Đảng HOẶC (Văn bản Hành chính AND loại Quyết định)
     const shouldItalicizeCanCu = isCanCu && (
-     documentFormat === 'HÀNH CHÍNH' && type === 'QUYẾT ĐỊNH'
+      documentFormat === 'HÀNH CHÍNH' && type === 'QUYẾT ĐỊNH'
     );
     const spacingBefore = isHeading ? 200 : (prevWasEmpty ? 120 : 60);
 
@@ -297,7 +297,7 @@ export async function exportToWord(docData: AdministrativeDocumentData) {
                                   }-${docData.unitCode}`
                                 )
                                 }`,
-                              size: 28,
+                              size: 26,
                               font: "Times New Roman"
                             }),
 
@@ -330,13 +330,7 @@ export async function exportToWord(docData: AdministrativeDocumentData) {
                         new Paragraph({
                           alignment: AlignmentType.CENTER,
                           children: [
-                            new TextRun({ text: "Độc lập - Tự do - Hạnh phúc", bold: true, size: 28, font: "Times New Roman" }),
-                          ],
-                        }),
-                        new Paragraph({
-                          alignment: AlignmentType.CENTER,
-                          children: [
-                            new TextRun({ text: "⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯", size: 24, font: "Times New Roman" }),
+                            new TextRun({ text: "Độc lập - Tự do - Hạnh phúc", bold: true, size: 28, font: "Times New Roman", underline: { type: UnderlineType.SINGLE } }),
                           ],
                         }),
                         new Paragraph({
@@ -374,14 +368,14 @@ export async function exportToWord(docData: AdministrativeDocumentData) {
                           new Paragraph({
                             alignment: AlignmentType.CENTER,
                             children: [
-                              new TextRun({ text: docData.parentAgency.toUpperCase(), size: 26, font: "Times New Roman" }),
+                              new TextRun({ text: docData.parentAgency.toUpperCase(), size: 28, font: "Times New Roman" }),
                             ],
                           })
                         ] : []),
                         new Paragraph({
                           alignment: AlignmentType.CENTER,
                           children: [
-                            new TextRun({ text: docData.issuingAgency.toUpperCase(), bold: true, size: 26, font: "Times New Roman" }),
+                            new TextRun({ text: docData.issuingAgency.toUpperCase(), bold: true, size: 28, font: "Times New Roman" }),
                           ],
                         }),
                         new Paragraph({
@@ -419,7 +413,7 @@ export async function exportToWord(docData: AdministrativeDocumentData) {
                               new TextRun({
                                 text: docData.subject,
                                 italics: true,
-                                size: 26,
+                                size: 24,
                                 font: "Times New Roman"
                               }),
                             ],
@@ -434,13 +428,7 @@ export async function exportToWord(docData: AdministrativeDocumentData) {
                         new Paragraph({
                           alignment: AlignmentType.CENTER,
                           children: [
-                            new TextRun({ text: "ĐẢNG CỘNG SẢN VIỆT NAM", bold: true, size: 28, font: "Times New Roman" }),
-                          ],
-                        }),
-                        new Paragraph({
-                          alignment: AlignmentType.CENTER,
-                          children: [
-                            new TextRun({ text: "⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯", size: 24, font: "Times New Roman" }),
+                            new TextRun({ text: "ĐẢNG CỘNG SẢN VIỆT NAM", bold: true, size: 30, font: "Times New Roman", underline: { type: UnderlineType.SINGLE } }),
                           ],
                         }),
                         new Paragraph({
@@ -458,15 +446,17 @@ export async function exportToWord(docData: AdministrativeDocumentData) {
           ]),
 
           // Title and Subject - Only show for non-CÔNG VĂN, non-GIẤY MỜI, non-THÔNG BÁO, non-BIÊN BẢN types
-          ...(docData.type !== 'CÔNG VĂN' &&
-            docData.type !== 'GIẤY MỜI' &&
-            docData.type !== 'THÔNG BÁO' &&
-            docData.type !== 'BIÊN BẢN' ? [
+          ...(docData.type !== 'CÔNG VĂN' ? [
             new Paragraph({
               alignment: AlignmentType.CENTER,
               spacing: { before: 360, after: 0 },
               children: [
-                new TextRun({ text: docData.type.toUpperCase(), bold: true, size: 28, font: "Times New Roman" }),
+                new TextRun({
+                  text: docData.type.toUpperCase(),
+                  bold: true,
+                  size: ['THÔNG BÁO', 'KẾT LUẬN', 'GIẤY MỜI', 'NGHỊ QUYẾT', 'BIÊN BẢN', 'CHƯƠNG TRÌNH', 'QUYẾT ĐỊNH', 'TỜ TRÌNH'].includes(docData.type) ? 30 : 28,
+                  font: "Times New Roman"
+                }),
               ],
             }),
             new Paragraph({
@@ -481,8 +471,8 @@ export async function exportToWord(docData: AdministrativeDocumentData) {
             children: [new TextRun({ text: '' })],
           })]),
 
-  // Content
-  ...buildContentParagraphs(docData.content, docData.documentFormat, docData.type),
+          // Content
+          ...buildContentParagraphs(docData.content, docData.documentFormat, docData.type),
 
           // Footer: Nơi nhận and Signer
           ...(docData.type !== 'BIÊN BẢN' ? [
@@ -541,11 +531,11 @@ export async function exportToWord(docData: AdministrativeDocumentData) {
                             new TextRun({ text: docData.mainSigner.position.toUpperCase(), bold: true, size: 28, font: "Times New Roman" }),
                           ],
                         }),
-                        ...(docData.mainSigner.ktChibo || docData.mainSigner.ktGiamDoc || docData.mainSigner.ktBiThu ? [
+                        ...(docData.mainSigner.ktGiamDoc || docData.mainSigner.ktChibo || docData.mainSigner.ktBiThu ? [
                           new Paragraph({
                             alignment: AlignmentType.CENTER,
                             children: [
-                              new TextRun({ text: (docData.mainSigner.ktChibo || docData.mainSigner.ktGiamDoc || docData.mainSigner.ktBiThu).toUpperCase(), bold: true, size: 28, font: "Times New Roman" }),
+                              new TextRun({ text: (docData.mainSigner.ktGiamDoc || docData.mainSigner.ktChibo ||  docData.mainSigner.ktBiThu).toUpperCase(), bold: !!docData.mainSigner.ktGiamDoc, size: 28, font: "Times New Roman" }),
                             ],
                           })
                         ] : []),
