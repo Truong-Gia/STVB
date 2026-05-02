@@ -297,7 +297,7 @@ export async function exportToWord(docData: AdministrativeDocumentData) {
                                   }-${docData.unitCode}`
                                 )
                                 }`,
-                              size: 28,
+                              size: 26,
                               font: "Times New Roman"
                             }),
 
