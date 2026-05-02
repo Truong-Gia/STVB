@@ -966,7 +966,7 @@ export default function App() {
                           ) : (
                             <div className="flex flex-col items-center gap-2 text-center">
                               <Upload size={24} className="text-[#141414]/40" />
-                              <p className="text-xs font-medium">Tải lên nhiều file cùng lúc (Word, PDF, Excel, Ảnh, Âm thanh, TXT...)</p>
+                              <p className="text-xs font-medium">Tải lên nhiều file cùng lúc (Word, PDF, Excel, Ảnh, Âm thanh, TXT...) - File PDF kích thước <1MB</p>
                               <p className="text-[10px] text-[#141414]/40">Hỗ trợ: .docx .pdf .xlsx .csv .txt .jpg .png .mp3 và nhiều định dạng khác</p>
                             </div>
                           )}
