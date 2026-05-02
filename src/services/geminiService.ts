@@ -469,7 +469,7 @@ export async function exportToWord(docData: AdministrativeDocumentData) {
                 new TextRun({ 
                   text: docData.type.toUpperCase(), 
                   bold: true, 
-                  size: ['THÔNG BÁO', 'GIẤY MỜI', 'NGHỊ QUYẾT', 'BIÊN BẢN', 'CHƯƠNG TRÌNH', 'QUYẾT ĐỊNH', 'TỜ TRÌNH'].includes(docData.type) ? 30 : 28,
+                  size: ['THÔNG BÁO', 'KẾT LUẬN', 'GIẤY MỜI', 'NGHỊ QUYẾT', 'BIÊN BẢN', 'CHƯƠNG TRÌNH', 'QUYẾT ĐỊNH', 'TỜ TRÌNH'].includes(docData.type) ? 30 : 28,
                   font: "Times New Roman" 
                 }),
               ],
