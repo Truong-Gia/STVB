@@ -446,10 +446,7 @@ export async function exportToWord(docData: AdministrativeDocumentData) {
           ]),
 
           // Title and Subject - Only show for non-CÔNG VĂN, non-GIẤY MỜI, non-THÔNG BÁO, non-BIÊN BẢN types
-          ...(docData.type !== 'CÔNG VĂN' &&
-            docData.type !== 'GIẤY MỜI' &&
-            docData.type !== 'THÔNG BÁO' &&
-            docData.type !== 'BIÊN BẢN' ? [
+          ...(docData.type !== 'CÔNG VĂN' ? [
             new Paragraph({
               alignment: AlignmentType.CENTER,
               spacing: { before: 360, after: 0 },
