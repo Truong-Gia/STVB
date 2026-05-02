@@ -194,7 +194,7 @@ function buildContentParagraphs(content: string, documentFormat?: string, type?:
     const isCanCu = /^(Căn cứ|Theo đề nghị)/.test(line.trim());
     // In nghiêng Căn cứ chỉ khi: Văn bản Đảng HOẶC (Văn bản Hành chính AND loại Quyết định)
     const shouldItalicizeCanCu = isCanCu && (
-     documentFormat === 'HÀNH CHÍNH' && type === 'QUYẾT ĐỊNH'
+      documentFormat === 'HÀNH CHÍNH' && type === 'QUYẾT ĐỊNH'
     );
     const spacingBefore = isHeading ? 200 : (prevWasEmpty ? 120 : 60);
 
@@ -330,13 +330,7 @@ export async function exportToWord(docData: AdministrativeDocumentData) {
                         new Paragraph({
                           alignment: AlignmentType.CENTER,
                           children: [
-                            new TextRun({ text: "Độc lập - Tự do - Hạnh phúc", bold: true, size: 28, font: "Times New Roman" }),
-                          ],
-                        }),
-                        new Paragraph({
-                          alignment: AlignmentType.CENTER,
-                          children: [
-                            new TextRun({ text: "⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯", size: 24, font: "Times New Roman" }),
+                            new TextRun({ text: "Độc lập - Tự do - Hạnh phúc", bold: true, size: 28, font: "Times New Roman", underline: { type: UnderlineType.SINGLE } }),
                           ],
                         }),
                         new Paragraph({
@@ -460,11 +454,11 @@ export async function exportToWord(docData: AdministrativeDocumentData) {
               alignment: AlignmentType.CENTER,
               spacing: { before: 360, after: 0 },
               children: [
-                new TextRun({ 
-                  text: docData.type.toUpperCase(), 
-                  bold: true, 
+                new TextRun({
+                  text: docData.type.toUpperCase(),
+                  bold: true,
                   size: ['THÔNG BÁO', 'KẾT LUẬN', 'GIẤY MỜI', 'NGHỊ QUYẾT', 'BIÊN BẢN', 'CHƯƠNG TRÌNH', 'QUYẾT ĐỊNH', 'TỜ TRÌNH'].includes(docData.type) ? 30 : 28,
-                  font: "Times New Roman" 
+                  font: "Times New Roman"
                 }),
               ],
             }),
@@ -480,8 +474,8 @@ export async function exportToWord(docData: AdministrativeDocumentData) {
             children: [new TextRun({ text: '' })],
           })]),
 
-  // Content
-  ...buildContentParagraphs(docData.content, docData.documentFormat, docData.type),
+          // Content
+          ...buildContentParagraphs(docData.content, docData.documentFormat, docData.type),
 
           // Footer: Nơi nhận and Signer
           ...(docData.type !== 'BIÊN BẢN' ? [
