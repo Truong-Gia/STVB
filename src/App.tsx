@@ -1055,10 +1055,10 @@ export default function App() {
                   exit={{ opacity: 0, x: 20 }}
                   className="space-y-6"
                 >
-                  <h2 className="text-xl font-bold">Hoàn chỉnh nội dung dự thảo do AI tạo để phù hợp với văn phong hành chính trước khi sử dụng chính thức.</h2>
+                  <h2 className="text-xl font-bold">Hoàn chỉnh nội dung dự thảo do AI tạo để phù hợp với YÊU CẦU trước khi sử dụng chính thức.</h2>
                   <div className="space-y-4">
                     <div className="space-y-1.5">
-                      <label className="text-[10px] font-bold uppercase tracking-widest text-[#141414]/60">NỘI DUNG VĂN BẢN AI</label>
+                      <label className="text-[10px] font-bold uppercase tracking-widest text-[#141414]/60">NỘI DUNG VĂN BẢN AI ĐÃ TẠO RA</label>
                       <textarea
                         value={data.content}
                         onChange={e => setData(prev => ({ ...prev, content: e.target.value }))}
