@@ -434,7 +434,7 @@ export async function exportToWord(docData: AdministrativeDocumentData) {
                         new Paragraph({
                           alignment: AlignmentType.CENTER,
                           children: [
-                            new TextRun({ text: "ĐẢNG CỘNG SẢN VIỆT NAM", bold: true, size: 28, font: "Times New Roman" }),
+                            new TextRun({ text: "ĐẢNG CỘNG SẢN VIỆT NAM", bold: true, size: 30, font: "Times New Roman" }),
                           ],
                         }),
                         new Paragraph({
