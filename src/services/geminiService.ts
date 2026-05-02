@@ -419,7 +419,7 @@ export async function exportToWord(docData: AdministrativeDocumentData) {
                               new TextRun({
                                 text: docData.subject,
                                 italics: true,
-                                size: 26,
+                                size: 24,
                                 font: "Times New Roman"
                               }),
                             ],
