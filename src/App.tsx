@@ -339,9 +339,13 @@ export default function App() {
         }
         // --- PDF ---
         else if (fileType === 'pdf') {
+          console.log("[v0] Xử lý PDF:", file.name);
           const arrayBuffer = await file.arrayBuffer();
+          console.log("[v0] PDF arrayBuffer size:", arrayBuffer.byteLength);
           const loadingTask = pdfjsLib.getDocument({ data: arrayBuffer });
+          console.log("[v0] PDF loading task created");
           const pdf = await loadingTask.promise;
+          console.log("[v0] PDF loaded, pages:", pdf.numPages);
           let fullText = '';
           for (let i = 1; i <= pdf.numPages; i++) {
             const page = await pdf.getPage(i);
@@ -349,6 +353,7 @@ export default function App() {
             const strings = content.items.map((item: any) => item.str);
             fullText += strings.join(' ') + '\n';
           }
+          console.log("[v0] PDF text extracted, length:", fullText.length);
           text = fullText;
         }
         // --- Excel (.xlsx, .xls, .csv) ---
@@ -429,7 +434,7 @@ export default function App() {
     <div className="px-4 py-2.5 flex items-center justify-between shadow-lg no-print sticky top-0 z-30" style={{ background: 'linear-gradient(135deg, #0f1b34 0%, #1e3a8a 60%, #f97316 100%)' }}>
       <div className="flex items-center gap-2">
         <FileText size={20} className="text-yellow-300" />
-        <span className="font-bold text-sm text-white font-sans hidden sm:inline">Trợ lý AI Soạn thảo văn bản</span>
+        <span className="font-bold text-sm text-white font-sans hidden sm:inline">Trợ lý AI So���n thảo văn bản</span>
       </div>
       <div className="flex items-center gap-2">
         <button
@@ -719,7 +724,7 @@ export default function App() {
                           onChange={v => setData(prev => ({ ...prev, mainSigner: { ...prev.mainSigner, position: v } }))}
                           onBlur={() => fieldHistory.addToHistory(FIELD_KEYS.SIGNER_POSITION, data.mainSigner.position)}
                           suggestions={historyFor(FIELD_KEYS.SIGNER_POSITION)}
-                          placeholder="Ví dụ: GIÁM ĐỐC"
+                          placeholder="Ví d��: GIÁM ĐỐC"
                           className="w-full p-2.5 pr-8 bg-[#F8F9FA] border border-[#141414]/10 rounded-lg text-sm outline-none focus:border-[#C1272D]"
                         />
                       </div>
