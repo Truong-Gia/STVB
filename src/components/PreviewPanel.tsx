@@ -151,7 +151,7 @@ export default function PreviewPanel({ data, showSaved }: PreviewPanelProps) {
 
   <div className="w-58 h-[1px] bg-[#141414] mx-auto mt-[2px]" />
 
-  <p className="text-[14pt] font-sans italic leading-[1.1] mt-[4px]">
+  <p className="text-[14pt] font-sans italic leading-[1.5] mt-[4px]">
     {data.location || '[Địa danh]'}, ngày {new Date(data.issueDate).getDate()} tháng {new Date(data.issueDate).getMonth() + 1} năm {new Date(data.issueDate).getFullYear()}
   </p>
 </div>
