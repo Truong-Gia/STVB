@@ -335,6 +335,7 @@ export async function exportToWord(docData: AdministrativeDocumentData) {
                         }),
                         new Paragraph({
                           alignment: AlignmentType.CENTER,
+                          spacing: { before: 80, after: 0, line: 240 }, // giãn nhẹ xuống dưới
                           children: [
                             new TextRun({ text: `${docData.location}, ngày   tháng ${new Date(docData.issueDate).getMonth() + 1} năm ${new Date(docData.issueDate).getFullYear()}`, italics: true, size: 28, font: "Times New Roman" }),
                           ],
