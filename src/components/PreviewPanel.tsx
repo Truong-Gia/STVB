@@ -137,12 +137,25 @@ export default function PreviewPanel({ data, showSaved }: PreviewPanelProps) {
                 <p className="text-[13pt] font-sans mt-2">{data.subject}</p>
               )}
             </div>
-            <div className="text-center space-y-1" style={{ width: `${100 - data.headerRatio}%` }}>
-              <p className="text-[13pt] font-sans font-bold uppercase tracking-tight leading-tight">CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</p>
-              <p className="text-[14pt] font-sans font-bold">Độc lập - Tự do - Hạnh phúc</p>
-              <div className="w-58 h-[1px] bg-[#141414] mx-auto mt-1" />
-              <p className="text-[14pt] font-sans italic mt-2">{data.location || '[Địa danh]'}, ngày {new Date(data.issueDate).getDate()} tháng {new Date(data.issueDate).getMonth() + 1} năm {new Date(data.issueDate).getFullYear()}</p>
-            </div>
+            <div
+  className="text-center space-y-0"
+  style={{ width: `${100 - data.headerRatio}%` }}
+>
+  <p className="text-[13pt] font-sans font-bold uppercase tracking-tight leading-[1.1]">
+    CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM
+  </p>
+
+  <p className="text-[14pt] font-sans font-bold leading-[1.1] mt-[2px]">
+    Độc lập - Tự do - Hạnh phúc
+  </p>
+
+  <div className="w-58 h-[1px] bg-[#141414] mx-auto mt-[2px]" />
+
+  <p className="text-[14pt] font-sans italic leading-[1.1] mt-[4px]">
+    {data.location || '[Địa danh]'}, ngày {new Date(data.issueDate).getDate()} tháng {new Date(data.issueDate).getMonth() + 1} năm {new Date(data.issueDate).getFullYear()}
+  </p>
+</div>
+
           </div>
         )}
 
