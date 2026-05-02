@@ -374,14 +374,14 @@ export async function exportToWord(docData: AdministrativeDocumentData) {
                           new Paragraph({
                             alignment: AlignmentType.CENTER,
                             children: [
-                              new TextRun({ text: docData.parentAgency.toUpperCase(), size: 26, font: "Times New Roman" }),
+                              new TextRun({ text: docData.parentAgency.toUpperCase(), size: 28, font: "Times New Roman" }),
                             ],
                           })
                         ] : []),
                         new Paragraph({
                           alignment: AlignmentType.CENTER,
                           children: [
-                            new TextRun({ text: docData.issuingAgency.toUpperCase(), bold: true, size: 26, font: "Times New Roman" }),
+                            new TextRun({ text: docData.issuingAgency.toUpperCase(), bold: true, size: 28, font: "Times New Roman" }),
                           ],
                         }),
                         new Paragraph({
