@@ -538,7 +538,7 @@ export async function exportToWord(docData: AdministrativeDocumentData) {
                           new Paragraph({
                             alignment: AlignmentType.CENTER,
                             children: [
-                              new TextRun({ text: (docData.mainSigner.ktChibo || docData.mainSigner.ktGiamDoc || docData.mainSigner.ktBiThu).toUpperCase(), bold: true, size: 28, font: "Times New Roman" }),
+                              new TextRun({ text: (docData.mainSigner.ktChibo || docData.mainSigner.ktGiamDoc || docData.mainSigner.ktBiThu).toUpperCase(), bold: !!docData.mainSigner.ktGiamDoc, size: 28, font: "Times New Roman" }),
                             ],
                           })
                         ] : []),
