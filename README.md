@@ -1,6 +1,6 @@
 🚀 Trợ lý AI Soạn thảo Văn bản
 
-✅ Ứng dụng giúp bạn soạn thảo nhanh chóng các loại văn bản hành chính và văn bản Đảng như: Kế hoạch, Thông báo, Quyết định, Công văn, Giấy mời… đảm bảo đúng thể thức theo Nghị định 30/2020/NĐ-CP và Hướng dẫn số 36-HD/TW.
+✅ Ứng dụng giúp bạn soạn thảo nhanh chóng các loại văn bản hành chính và văn bản ĐẢng như: Kế hoạch, Thông báo, Quyết định, Công văn, Giấy mời… đảm bảo đúng thể thức theo Nghị định 30/2020/NĐ-CP và Hướng dẫn số 36-HD/TW.
 Không còn phải copy mẫu cũ rồi chỉnh sửa thủ công — hạn chế tối đa sai sót.
 Không cần nhập đi nhập lại thông tin như tên cơ quan, người ký, nơi nhận…
 
