@@ -118,7 +118,7 @@ export default function PreviewPanel({ data, showSaved }: PreviewPanelProps) {
               <p className="text-[15pt] font-sans font-bold uppercase tracking-tight leading-tight">
                 ĐẢNG CỘNG SẢN VIỆT NAM
               </p>
-              <div className="w-67 h-[1px] bg-[#141414] mx-auto mt-1" />
+              <div className="w-66 h-[1px] bg-[#141414] mx-auto mt-1" />
               <p className="text-[14pt] font-sans italic mt-2">
                 {data.location || '[Địa danh]'}, ngày {new Date(data.issueDate).getDate()} tháng {new Date(data.issueDate).getMonth() + 1} năm {new Date(data.issueDate).getFullYear()}
               </p>
