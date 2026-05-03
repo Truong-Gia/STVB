@@ -119,6 +119,7 @@ Yêu cầu: Hãy soạn thảo nội dung chi tiết cho văn bản này dựa t
    - Nếu là GIẤY MỜI: Không có phần "Kính gửi". Nội dung bao gồm Thành phần tham dự, Nội dung họp, Thời gian và địa điểm. Nói dung rõ ràng, bôi đậm bold tại mục thời gian để nhấn mạnh tính quan trọng.
    - Nếu là BIÊN BẢN: Ghi rõ thời gian, địa điểm, thành phần tham dự, nội dung diễn biến (dựa trên file âm thanh/tài liệu nếu có), và kết luận.
    - Nếu là KẾT LUẬN: ghi rõ trích yếu nội dung kết luận, tùy nội dung kết luận mà trình bày các thành phần của văn bản đảm bảo theo hướng dẫn số 36-HD/TW
+   - Nếu là KẾ HOẠCH: Không có phần "Kính gửi". Nội dung bao gồm các phần được đánh số thứ tự La Mã: I, II, III...gồm các mục theo thứ tự: Mục đích, yêu cầu; Nội dung kế hoạch, Kinh phí thực hiện; Tổ chức thực hiện...
 3. Chỉ trả về nội dung phần thân văn bản (từ phần Căn cứ hoặc Kính gửi đến hết nội dung chính). KHÔNG bao gồm quốc hiệu, tiêu ngữ, tên cơ quan, số hiệu hay phần ký tên.
 4. TUYỆT ĐỐI KHÔNG sử dụng định dạng Markdown (như dấu * hay **). Trả về văn bản thuần túy.`;
 
