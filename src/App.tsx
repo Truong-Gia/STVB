@@ -595,7 +595,7 @@ export default function App() {
                         })}
                         className="w-full p-2.5 bg-[#F8F9FA] border border-[#141414]/10 rounded-lg text-sm outline-none focus:border-[#C1272D]"
                       >
-                        <option value="NHÀNƯỚC">Hành chính</option>
+                        <option value="NHÀNƯỚC">Văn bản Hành chính</option>
                         <option value="ĐẢNG">Văn bản Đảng</option>
                       </select>
                     </div>
