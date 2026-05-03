@@ -33,6 +33,4 @@ Tải về là có thể in hoặc nộp ngay — đúng thể thức hành chí
 ⚡ Hoàn toàn miễn phí:
 Chạy trực tiếp trên trình duyệt — không cần cài đặt.
 
-✍️ Tác giả: Chau Khéch
-
 🔧 Cải tiến: Lâm Trương
